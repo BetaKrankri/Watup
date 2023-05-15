@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+ @apply text-slate-300
+}
+
+
+
+.SearchInput:focus-within .search-icon {
+    @apply fill-slate-500
+}
