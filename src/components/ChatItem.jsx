@@ -2,7 +2,7 @@ import Avatar from "./Avatar";
 
 const ChatItem = () => {
   return (
-    <div className="w-full p-3 flex gap-3 border-b-2 border-slate-300">
+    <div className="w-full p-3 flex gap-3 border-b-2 border-slate-300 hover:cursor-pointer hover:bg-slate-900">
       <Avatar width={60} />
       <div className="ChatPreview flex-1 flex flex-col py-1">
         <h1 className="text-lg font-medium ">Contact Name</h1>
