@@ -5,7 +5,8 @@ let conversations = [
       { phoneNumber: "+180472554611", name: "Braulio Salero" },
       { phoneNumber: "+526784567349", name: "Elias Domingo" },
     ],
-    chatTitle: "Bruno Salero",
+    chatAvatar: "https://api.dicebear.com/6.x/avataaars-neutral/svg?seed=Boo&radius=30",
+    chatTitle: "Braulio Salero",
     messages: [
       {
         timeStamp: "2023-05-16T10:30:00Z",
@@ -31,6 +32,7 @@ let conversations = [
   },
   {
     id: "conv_146455",
+    chatAvatar: "",
     participants: [
       { phoneNumber: "+009879456376", name: "Lidia Pino" },
       { phoneNumber: "+526784567349", name: "Elias Domingo" },

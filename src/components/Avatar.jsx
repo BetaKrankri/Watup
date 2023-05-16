@@ -1,12 +1,12 @@
-const defaultAvatar = 'https://api.dicebear.com/6.x/adventurer/svg?seed=Casper'
-
-const Avatar = ({ width = 100, src = defaultAvatar }) => {
+import { randomAvatarSrc } from "../utils";
+const Avatar = ({ width = 100, src }) => {
+  const avatarSrc = src || randomAvatarSrc()
   return (
     <div
-      className={'rounded-full bg-amber-300 grid place-items-center'}
+      className={"rounded-full grid place-items-center bg-slate-300 "}
       style={{ width: width, height: width }}
     >
-        <img src={src} alt='avatar' className="w-full h-full object-contain"/>
+      <img src={avatarSrc} alt="avatar" className="w-full h-full object-contain rounded-md" />
     </div>
   );
 };
