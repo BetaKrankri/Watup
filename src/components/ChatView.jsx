@@ -7,11 +7,10 @@ const ChatView = ({ conversationId, setConversationId }) => {
   const conversation = useSelector((state) =>
     state.conversations.find((conver) => conver.id === conversationId)
   );
-  console.log(conversation);
 
   return conversation ? (
     <div className="w-full h-full bg-slate-900 flex flex-col">
-      <ChatBar />
+      <ChatBar conversation={conversation} onBack={() => setConversationId(null)}/>
 
       <div className="bg-slate-950 flex-1 py-2 px-6 md:px-10 flex flex-col justify-end gap-2">
         {conversation.messages.map((mess) => (
