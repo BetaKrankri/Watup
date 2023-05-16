@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import initialConversations from "../data/conversations";
 
 const conversationsSlice = createSlice({
-  name: "conversation",
+  name: "conversations",
   initialState: initialConversations,
   reducers: {
     createConversation: (state, { payload }) => {
@@ -23,6 +23,15 @@ const conversationsSlice = createSlice({
     },
   },
 });
+
+export function selectChatsPreviewList({ conversations }) {
+  return conversations.map((conver) => ({
+    id: conver.id,
+    chatTitle: conver.chatTitle,
+    lastMessage: conver.messages[0],
+    chatAvatar: conver.chatAvatar,
+  }));
+}
 
 export default conversationsSlice.reducer;
 
