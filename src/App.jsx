@@ -2,23 +2,26 @@ import { useState } from "react";
 import { ChatNav, ChatView } from "./components";
 
 function App() {
-  const [currentConversationId, setSelectedConvId] = useState(null);
+  const [conversationId, setConversationId] = useState(null);
 
   return (
     <div className="WasupApp w-full h-screen flex">
       <div
         className={`w-full md:max-w-[350px] lg:max-w-[400px] ${
-          currentConversationId ? "hidden" : "block"
+          conversationId ? "hidden" : "block"
         } md:block`}
       >
-        <ChatNav setSelectedConvId={setSelectedConvId} />
+        <ChatNav setConversationId={setConversationId} />
       </div>
       <div
-        className={`w-full hidden ${
-          !currentConversationId ? "hidden" : "block"
+        className={`Chatview w-full ${
+          conversationId ? "block" : "hidden"
         } md:block`}
       >
-        <ChatView conversationId={currentConversationId} />
+        <ChatView
+          conversationId={conversationId}
+          setConversationId={setConversationId}
+        />
       </div>
     </div>
   );
