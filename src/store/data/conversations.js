@@ -1,53 +1,61 @@
 let conversations = [
   {
-    id: 1,
-    chatName: "Bruno Salero",
+    id: "conv_087612",
+    participants: [
+      { phoneNumber: "+180472554611", name: "Braulio Salero" },
+      { phoneNumber: "+526784567349", name: "Elias Domingo" },
+    ],
+    chatTitle: "Bruno Salero",
     messages: [
       {
-        timeStamp: "12:00",
+        timeStamp: "2023-05-16T10:30:00Z",
         text: "Hola",
-        sender: "Bruno Saleiro",
+        senderPhone: "+180472554611",
       },
       {
-        timeStamp: "12:03",
+        timeStamp: "2023-05-16T10:31:00Z",
         text: "HEY!! La tarea!!!",
-        sender: "ME",
+        senderPhone: "+526784567349",
       },
       {
-        timeStamp: "12:05",
+        timeStamp: "2023-05-16T10:33:00Z",
         text: "Que tarea?",
-        sender: "Bruno Saleiro",
+        senderPhone: "+180472554611",
       },
       {
-        timeStamp: "12:06",
+        timeStamp: "2023-05-16T10:37:00Z",
         text: "Aaah No hay Je :)",
-        sender: "ME",
+        senderPhone: "+526784567349",
       },
     ],
   },
   {
-    id: 2,
-    chatName: "Lidia Pino",
+    id: "conv_146455",
+    participants: [
+      { phoneNumber: "+009879456376", name: "Lidia Pino" },
+      { phoneNumber: "+526784567349", name: "Elias Domingo" },
+    ],
+    chatTitle: "Lidia Pino",
     messages: [
       {
-        timeStamp: "14:17",
+        timeStamp: "2023-05-16T10:31:00Z",
         text: "Si tal vez",
-        sender: "Lidia Pino",
+        senderPhone: "+009879456376",
       },
       {
-        timeStamp: "15:03",
+        timeStamp: "2023-05-16T10:40:00Z",
         text: "Pero como no",
-        sender: "ME",
+        senderPhone: "+009879456376",
       },
       {
-        timeStamp: "15:05",
+        timeStamp: "2023-05-16T10:44:00Z",
         text: "Lorem Ipsum Asumachina",
-        sender: "Lidia Pino",
+        senderPhone: "+526784567349",
       },
       {
-        timeStamp: "16:06",
+        timeStamp: "2023-05-16T10:50:00Z",
         text: "Ilieia",
-        sender: "Lidia Pino",
+        senderPhone: "+526784567349",
       },
     ],
   },
