@@ -1,10 +1,13 @@
 import { getHourString } from "../utils";
 import Avatar from "./Avatar";
 
-const ChatItem = ({ previewInfo }) => {
+const ChatItem = ({ previewInfo, onClick }) => {
   const { lastMessage, id, chatAvatar, chatTitle } = previewInfo;
   return (
-    <div className="w-full p-3 flex gap-3 border-b-2 border-slate-300 hover:cursor-pointer hover:bg-slate-900">
+    <div
+      className="w-full p-3 flex gap-3 border-b-2 border-slate-300 hover:cursor-pointer hover:bg-slate-900"
+      onClick={onClick}
+    >
       <Avatar width={60} src={chatAvatar} />
       <div className="ChatPreview flex-1 flex flex-col py-1">
         <h1 className="text-lg font-medium ">{chatTitle}</h1>

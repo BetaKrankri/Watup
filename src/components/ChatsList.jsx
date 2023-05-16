@@ -2,17 +2,16 @@ import { ChatItem, ChatSearch } from "./index";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-const ChatsList = () => {
+const ChatsList = ({ setSelectedConvId }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const chatsPreviewList = useSelector((state) =>
     state.conversations.map((conv) => ({
       id: conv.id,
       chatTitle: conv.chatTitle,
       lastMessage: conv.messages[0],
-      chatAvatar: conv.chatAvatar
+      chatAvatar: conv.chatAvatar,
     }))
   );
-    console.log(chatsPreviewList)
   return (
     <div className="w-full h-full flex flex-col bg-slate-950">
       {/* Top Search Bar */}
@@ -25,7 +24,11 @@ const ChatsList = () => {
       {/* Bottom Chat List  */}
       <div className="ChatList h-full w-full bg-slate-950">
         {chatsPreviewList.map((previewItem) => (
-          <ChatItem previewInfo={previewItem} key={previewItem.id}/>
+          <ChatItem
+            previewInfo={previewItem}
+            key={previewItem.id}
+            onClick={() => setSelectedConvId(previewItem.id)}
+          />
         ))}
       </div>
     </div>

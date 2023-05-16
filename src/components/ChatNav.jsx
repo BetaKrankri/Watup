@@ -1,10 +1,10 @@
 import { ProfileBar, ChatsList } from "../components";
 
-const ChatNav = () => {
+const ChatNav = ({setSelectedConvId}) => {
   return (
-    <div className="w-full h-full flex flex-col md:max-w-[400px] bg-black">
+    <div className="w-full h-full flex flex-col  bg-black">
       <ProfileBar />
-      <ChatsList />
+      <ChatsList setSelectedConvId={setSelectedConvId}/>
     </div>
   );
 };
