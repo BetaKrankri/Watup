@@ -1,12 +1,8 @@
-import { ProfileBar, ChatSearch, ChatItem } from "../components";
+import { ProfileBar, SearchInput, ChatsList, ResultsList } from "../components";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { selectChatsPreviewList } from "../store/slices/conversationsSlice";
 
 const ChatNav = ({ setConversationId }) => {
   const [searchTerm, setSearchTerm] = useState("");
-
-  const chatsPreviewList = useSelector(selectChatsPreviewList);
 
   return (
     <div className="w-full h-full flex flex-col  bg-black">
@@ -14,25 +10,28 @@ const ChatNav = ({ setConversationId }) => {
 
       <div className="w-full h-full flex flex-col bg-slate-950">
         {/* Top Search Bar */}
-        <div className="w-full p-3">
-          <ChatSearch
+        <div className="Search w-full p-3">
+          <SearchInput
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        {/* Bottom Chat List  */}
-        <div className="ChatList h-full w-full bg-slate-950">
-          {chatsPreviewList.map((previewItem) => (
-            <ChatItem
-              previewInfo={previewItem}
-              key={previewItem.id}
-              onClick={() => setConversationId(previewItem.id)}
+        {/* Bottom Items List  */}
+        <div className="List h-full w-full bg-slate-950">
+          {/* Si no existe un termino de busqueda solo renderiza la lista de chats con su ultimo  */}
+          {!searchTerm && <ChatsList setConversationId={setConversationId} />}
+          {searchTerm && (
+            <ResultsList
+              searchTerm={searchTerm}
+              setConversationId={setConversationId}
             />
-          ))}
+          )}
         </div>
       </div>
     </div>
   );
 };
+
+
 
 export default ChatNav;
