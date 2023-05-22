@@ -5,7 +5,7 @@ const conversationsSlice = createSlice({
   name: "conversations",
   initialState: initialConversations,
   reducers: {
-    createConversation: (state, { payload }) => {
+    createdConversation: (state, { payload }) => {
       state = [
         ...state,
         {
@@ -16,11 +16,27 @@ const conversationsSlice = createSlice({
         },
       ];
     },
-    deleteConversation: (state, { payload }) => {
+    deletedConversation: (state, { payload }) => {
       return state.filter(
         (conversation) => conversation.id !== payload.conversationId
       );
     },
+    sendedMessage: (state, { payload }) =>
+      state.map((conversation) =>
+        conversation.id === payload.converId
+          ? {
+              ...conversation,
+              messages: [
+                {
+                  timeStamp: new Date().toJSON(),
+                  senderPhone: payload.senderPhone,
+                  text: payload.text,
+                },
+                ...conversation.messages,
+              ],
+            }
+          : conversation
+      ),
   },
 });
 
@@ -35,5 +51,5 @@ export function selectChatsPreviewList({ conversations }) {
 
 export default conversationsSlice.reducer;
 
-export const { createConversation, deleteConversation } =
+export const { createdConversation, deletedConversation, sendedMessage } =
   conversationsSlice.actions;

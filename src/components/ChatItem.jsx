@@ -1,4 +1,4 @@
-import { getHourString } from "../utils";
+import { getTimeString } from "../utils";
 import Avatar from "./Avatar";
 
 const ChatItem = ({ onClick, chatAvatar, chatTitle, message }) => {
@@ -14,7 +14,7 @@ const ChatItem = ({ onClick, chatAvatar, chatTitle, message }) => {
       </div>
       {message && (
         <div className="flex flex-col items-end justify-between py-1 text-sm">
-          <p>{getHourString(message.timeStamp)}</p>
+          <p>{getTimeString(message.timeStamp)}</p>
 
           {/* Indicador de mensajes no leidos */}
           {/* <div className="bg-slate-700 rounded-full h-5 w-5 grid place-items-center ">

@@ -20,7 +20,7 @@ function App() {
       >
         <ChatView
           conversationId={conversationId}
-          setConversationId={setConversationId}
+          onBack={() => setConversationId(null)}
         />
       </div>
     </div>
