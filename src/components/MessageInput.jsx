@@ -1,9 +1,13 @@
+import { useRef } from "react";
 import { SendIcon } from "../assets/icons";
 
 const MessageInput = ({ value, onChange, onSend }) => {
+  const inputRef = useRef(null);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onSend();
+    inputRef.current.focus();
   };
 
   return (
@@ -12,6 +16,7 @@ const MessageInput = ({ value, onChange, onSend }) => {
       onSubmit={handleSubmit}
     >
       <input
+        ref={inputRef}
         type="text"
         placeholder="Escribe un mensaje aqui..."
         className="flex-1 bg-transparent appearance-none border-none outline-none text-slate-950 placeholder:text-gray-500"
