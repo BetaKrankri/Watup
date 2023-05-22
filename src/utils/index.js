@@ -29,8 +29,11 @@ export function randomAvatarSrc() {
   return baseUrl;
 }
 
-/** For get The String "00:00" from the timeStamp */
-export function getHourString(timeStamp) {
+/** For get The String "hh:mm" or "dd/mm/yyyy" from the timeStamp */
+export function getTimeString(timeStamp) {
   const time = new Date(timeStamp);
+  if ((new Date() - time) / 3600000 >= 24) {
+    return `${time.getDate()}/${time.getMonth()}/${time.getFullYear()}`;
+  }
   return `${time.getHours()}:${time.getMinutes()}`;
 }
